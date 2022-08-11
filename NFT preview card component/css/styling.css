@@ -1,0 +1,182 @@
+:root {
+    --body-color: rgb(13 26 45);
+    --main-color: rgb(21 39 63);
+    --button-color: rgb(252 118 19);
+    --eth-color: rgb(72 202 202);
+    --text-color: rgb(111 118 128);
+}
+/* Basic Styles in any project or component */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+img {
+    max-width: 100%;
+}
+
+
+/* this code is only for color beautify, not needed in the component
+the height of div is set to 100vh due to positionning setting and it is
+made just to make the component stand alone */
+
+body {
+    background-color: rgb(13 26 45);
+    position: relative;
+    min-height: 100vh;
+}
+
+
+
+/* Positionning code, you can display this component anywhere you need to
+and this class is made to center the component in the body element
+*/
+
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+
+
+
+/* Width can be reconfigurable based on ur needs */
+
+.card {
+    width: 350px; 
+    background-color: rgb(21 39 63);
+    padding: 20px;
+    border-radius: 8px;
+}
+.card .image {
+    margin-bottom: 25px;
+    position: relative;
+    height: 310px;
+    width: 100%;
+}
+.card .image img.main {
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+}
+.card .image .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(72 202 202);
+    opacity: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.card .image .overlay:hover {
+    opacity: .8;
+}
+.card .details {
+    margin-bottom: 50px;
+}
+.card .details .nft-name {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    word-spacing: 3px;
+    margin-bottom: 15px;
+}
+.card .details p {
+    color: rgb(111 118 128);
+    line-height: 22px;
+    margin-bottom: 15px;
+}
+.card .details .nft-info {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.card .details .nft-info::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: rgba(111, 118, 128, 0.411);
+    position: absolute;
+    left: 0;
+    bottom: -25px;
+}
+.card .details .nft-info div {
+    display: flex;
+    align-items: center;
+}
+.card .details .nft-info div img {
+    margin-right: 5px;
+}
+.card .details .nft-info div span {
+    font-size: 14px;
+    font-weight: bold;
+}
+.card .details .nft-info div span.ethereum {
+    color: rgb(72 202 202);
+}
+.card .details .nft-info div span.time-left {
+    color: rgb(111 118 128);
+}
+.card .creator {
+    display: flex;
+    align-items: center;
+}
+.card .creator img {
+    width: 45px;
+    height: 45px;
+    margin-right: 25px;
+}
+.card .creator p {
+    color: #fff;
+}
+.card .creator p span {
+    color: rgb(72 202 202);
+    margin-right: 5px;
+}
+
+
+
+/* Media query to make the card responsive 
+on devices smaller than iphone SE (smaller than 375px) */
+
+@media (max-width: 359px) {
+    .card {
+        width: 100%; 
+        border-radius: unset;
+        padding: 0px;
+    }
+    .card .image {
+        height: 240px;
+    }
+    .card .image img.main {
+        border-radius: unset;
+    }
+    .card .image .overlay {
+        border-radius: unset;
+    }
+    .card .details {
+        text-align: center;
+    }
+    .card .details .nft-info {
+        flex-direction: column;
+        align-items: center;
+        justify-content: unset;
+    }
+    .card .details .nft-info div {
+        margin-bottom: 10px;
+    }
+    .card .creator {
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+    .card .creator img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
